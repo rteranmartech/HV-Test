@@ -1,10 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y92RHP7V0F"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-Y92RHP7V0F');
+  </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculadora HV - San Lázaro</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📊</text></svg>">
+  <title> Calculadora HV - San Lázaro</title>
   <style>
     :root {
       --primary-color: #007bff;
@@ -17,17 +28,17 @@
       --retiro-color: #d1e7ff;
       --saldo-final-color: #d1f0d1;
     }
-    html, body {
+
+    html,
+    body {
       margin: 0;
       padding: 0;
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       background-color: var(--bg-color);
       color: var(--text-color);
-      min-height: 100vh;
-      overflow-x: hidden;
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
+      height: 100%;
     }
+
     .container {
       max-width: 700px;
       margin: 0 auto;
@@ -37,11 +48,13 @@
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
       text-align: center;
     }
+
     h1 {
       font-size: 1.8rem;
       margin-bottom: 32px;
       color: var(--primary-color);
     }
+
     .btn {
       display: block;
       width: 100%;
@@ -56,21 +69,26 @@
       cursor: pointer;
       transition: background-color 0.3s ease;
     }
+
     .btn:hover {
       background-color: var(--primary-hover);
     }
+
     .hidden {
       display: none;
     }
+
     .form-group {
       margin-bottom: 16px;
       text-align: left;
     }
+
     label {
       font-weight: bold;
       display: block;
       margin-bottom: 6px;
     }
+
     input[type="text"],
     input[type="number"],
     input[type="date"] {
@@ -81,10 +99,12 @@
       font-size: 1rem;
       box-sizing: border-box;
     }
+
     input[readonly] {
       background-color: #f0f0f0;
-      box-shadow: inset 0 0 4px rgba(0,0,0,0.1);
+      box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.1);
     }
+
     .resultado-barra {
       padding: 10px;
       margin: 8px 0;
@@ -92,15 +112,19 @@
       font-weight: bold;
       text-align: left;
     }
+
     .comision {
       background-color: var(--comision-color);
     }
+
     .retiro {
       background-color: var(--retiro-color);
     }
+
     .saldo-final {
       background-color: var(--saldo-final-color);
     }
+
     .resultado-tabla {
       width: 100%;
       border-collapse: collapse;
@@ -110,6 +134,7 @@
       border-radius: 8px;
       overflow: hidden;
     }
+
     .resultado-tabla th,
     .resultado-tabla td {
       border: 1px solid var(--border-color);
@@ -117,10 +142,12 @@
       font-size: 0.9rem;
       text-align: left;
     }
+
     .resultado-tabla th {
       background-color: #e9ecef;
       font-weight: bold;
     }
+
     .mes-titulo {
       font-weight: bold;
       margin-top: 24px;
@@ -128,6 +155,7 @@
       color: var(--primary-color);
       text-align: left;
     }
+
     .pie-pagina {
       margin-top: 40px;
       font-size: 0.8rem;
@@ -136,20 +164,20 @@
     }
   </style>
 </head>
+
 <body>
   <div class="container" id="menu">
-    <h1>Calculadora HV - San Lázaro 🌴</h1>
+    <h1>Calculadora HV<br>San Lázaro</h1>
     <button class="btn" onclick="mostrar('saldos')">Simular Saldos</button>
     <button class="btn" onclick="mostrar('retiros')">Simular Retiros</button>
-    <div class="pie-pagina">2025 Calculadora HV San Lázaro ® Todos los derechos reservados<br>Desarrollado por Sanlazareños 🌴</div>
+    <div class="pie-pagina">© 2025 Calculadora HV San Lázaro - Todos los datos mostrados son simulaciones y pueden variar.<br>® Todos los derechos reservados - Desarrollado por Sanlazareños 🌴</div>
   </div>
 
-  <!-- Sección SALDOS -->
   <div class="container hidden" id="saldos">
     <h2>Simulador de Saldos</h2>
     <div class="form-group">
-      <label for="inversionSaldos">Saldo que tienes hoy o Inversión Inicial:</label>
-      <input type="text" id="inversionSaldos" placeholder="$300" inputmode="numeric">
+      <label for="inversionSaldos">¿Saldo que tienes hoy o cual sera tu Inversión Inicial?:</label>
+      <input type="text" id="inversionSaldos" placeholder="Ej: $300 - sin puntos" inputmode="numeric">
     </div>
     <div class="form-group">
       <label for="senalesSaldos">¿Cuántas señales haces al día?:</label>
@@ -162,26 +190,25 @@
     <button class="btn" onclick="calcularSaldo()">Simular Saldo</button>
     <button class="btn" onclick="volver()">Volver al Menú</button>
     <div id="resultadoSaldos"></div>
-    <div class="pie-pagina">2025 Calculadora HV San Lázaro ® Todos los derechos reservados<br>Desarrollado por Sanlazareños 🌴</div>
+    <div class="pie-pagina">© 2025 Calculadora HV San Lázaro - Todos los datos mostrados son simulaciones y pueden variar.<br>® Todos los derechos reservados - Desarrollado por Sanlazareños 🌴</div>
   </div>
 
-  <!-- Sección RETIROS -->
   <div class="container hidden" id="retiros">
     <h2>Simulador de Retiros</h2>
     <div class="form-group">
       <label for="saldoRetiros">¿Cuál es tu saldo hoy?</label>
-      <input type="text" id="saldoRetiros" placeholder="$600" inputmode="numeric">
+      <input type="text" id="saldoRetiros" placeholder="Ej: $600 - sin puntos" inputmode="numeric">
     </div>
     <div class="form-group">
       <label for="montoRetiro">Monto a retirar:</label>
-      <input type="text" id="montoRetiro" placeholder="$50" inputmode="numeric">
+      <input type="text" id="montoRetiro" placeholder="$Ej: 50" inputmode="numeric">
     </div>
     <button class="btn" onclick="simularRetiro()">Simular Retiro</button>
     <button class="btn" onclick="volver()">Volver al Menú</button>
     <div id="resultadoRetiros"></div>
     <div id="postSimulacion" class="hidden">
       <div class="form-group">
-        <label for="saldoPosterior">Saldo que tienes hoy o Inversión Inicial:</label>
+        <label for="saldoPosterior">Saldo restante post simulación de retiro:</label>
         <input type="text" id="saldoPosterior" readonly>
       </div>
       <div class="form-group">
@@ -195,12 +222,12 @@
       <button class="btn" onclick="calcularPosterior()">Simular Saldo</button>
       <div id="resultadoPosterior"></div>
     </div>
-    <div class="pie-pagina">2025 Calculadora HV San Lázaro ® Todos los derechos reservados<br>Desarrollado por Sanlazareños 🌴</div>
+    <div class="pie-pagina">© 2025 Calculadora HV San Lázaro - Todos los datos mostrados son simulaciones y pueden variar.<br>® Todos los derechos reservados - Desarrollado por Sanlazareños 🌴</div>
   </div>
 
   <script>
     function mostrar(id) {
-      volver();
+      volver(); // Limpia todo al cambiar de vista
       document.getElementById('menu').classList.add('hidden');
       document.getElementById('saldos').classList.add('hidden');
       document.getElementById('retiros').classList.add('hidden');
@@ -211,13 +238,19 @@
       document.getElementById('menu').classList.remove('hidden');
       document.getElementById('saldos').classList.add('hidden');
       document.getElementById('retiros').classList.add('hidden');
+
+      // Limpiar todos los inputs excepto los readonly
       document.querySelectorAll('input').forEach(input => {
         if (!input.readOnly) input.value = '';
       });
+
+      // Limpiar resultados
       ['resultadoSaldos', 'resultadoRetiros', 'resultadoPosterior'].forEach(id => {
         const div = document.getElementById(id);
         if (div) div.innerHTML = '';
       });
+
+      // Ocultar postSimulacion
       const post = document.getElementById("postSimulacion");
       if (post) post.classList.add("hidden");
     }
@@ -268,11 +301,14 @@
       const restante = saldo - retiro;
 
       resultado.innerHTML = `
-        <div class="resultado-barra comision">Se resta ${porc*100}% porcentaje plataforma: $${comision.toFixed(2)}</div>
-        <div class="resultado-barra retiro">Monto final a recibir para retiro: $${neto.toFixed(2)}</div>
+        <div class="resultado-barra comision">Resta ${porc * 100}% porcentaje plataforma: $${comision.toFixed(2)}</div>
+        <div class="resultado-barra retiro">Monto que recibirás por este retiro: $${neto.toFixed(2)}</div>
         <div class="resultado-barra saldo-final">Saldo que quedaría en tu cuenta: $${restante.toFixed(2)}</div>
         <p style="margin-top: 20px; font-size: 0.9rem; color: #333;">
-          Pronóstico en base a saldo y retiro simulado. A continuación simularemos los saldos futuros suponiendo que realizaras el retiro que se muestra simulado.
+          🔍 Te mostraremos un pronóstico estimado basado en el retiro que estás simulando.
+Esta herramienta te permite visualizar cómo afectaría ese retiro a tu saldo futuro, ayudándote a tomar decisiones más informadas.
+
+⬇️ Continúa simulando ⬇️ 
         </p>
       `;
       campoPosterior.value = `$${restante.toFixed(2)}`;
@@ -299,7 +335,9 @@
       let saldo = inversion;
       for (let i = 0; i < 6; i++) {
         const ultimoDia = new Date(anio, mes + 1, 0).getDate();
-        let html = `<div class="mes-titulo">Pronóstico en: ${new Date(anio, mes).toLocaleString('es-ES', { month: 'long' })} ${anio}</div>`;
+        let html = `<div class="mes-titulo">Pronóstico en: ${new Date(anio, mes).toLocaleString('es-ES', {
+          month: 'long'
+        })} ${anio}</div>`;
         html += '<table class="resultado-tabla"><thead><tr><th>Fecha</th><th>Señal Día</th><th>Saldo (fin del día)</th></tr></thead><tbody>';
         for (let d = dia; d <= ultimoDia; d++) {
           const ganancia = saldo * porcentajeDiario;
@@ -310,7 +348,10 @@
         container.innerHTML += html;
         dia = 1;
         mes++;
-        if (mes > 11) { mes = 0; anio++; }
+        if (mes > 11) {
+          mes = 0;
+          anio++;
+        }
       }
     }
 
@@ -329,5 +370,5 @@
     });
   </script>
 </body>
-</html>
 
+</html>
