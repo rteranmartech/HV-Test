@@ -176,15 +176,15 @@
   <div class="container hidden" id="saldos">
     <h2>Simulador de Saldos</h2>
     <div class="form-group">
-      <label for="inversionSaldos">¿Saldo que tienes hoy o cual sera tu Inversión Inicial?:</label>
+      <label for="inversionSaldos">¿Saldo que tienes hoy o cual sera tu inversión inicial?</label>
       <input type="text" id="inversionSaldos" placeholder="Ej: $300 - sin puntos" inputmode="numeric">
     </div>
     <div class="form-group">
-      <label for="senalesSaldos">¿Cuántas señales haces al día?:</label>
+      <label for="senalesSaldos">¿Cuántas señales haces al día?</label>
       <input type="number" id="senalesSaldos" min="1" max="5" inputmode="numeric" pattern="[0-9]*">
     </div>
     <div class="form-group">
-      <label for="fechaSaldos">Fecha de Consulta (Estimación 6 meses):</label>
+      <label for="fechaSaldos">Selecciona fecha de Consulta (estimación 6 meses)</label>
       <input type="date" id="fechaSaldos">
     </div>
     <button class="btn" onclick="calcularSaldo()">Simular Saldo</button>
@@ -200,7 +200,7 @@
       <input type="text" id="saldoRetiros" placeholder="Ej: $600 - sin puntos" inputmode="numeric">
     </div>
     <div class="form-group">
-      <label for="montoRetiro">Monto a retirar:</label>
+      <label for="montoRetiro">¿Cuál sería tu monto a retirar?</label>
       <input type="text" id="montoRetiro" placeholder="$Ej: 50" inputmode="numeric">
     </div>
     <button class="btn" onclick="simularRetiro()">Simular Retiro</button>
@@ -212,11 +212,11 @@
         <input type="text" id="saldoPosterior" readonly>
       </div>
       <div class="form-group">
-        <label for="senalesPosterior">¿Cuántas señales haces al día?:</label>
+        <label for="senalesPosterior">¿Cuántas señales haces al día?</label>
         <input type="number" id="senalesPosterior" min="1" max="5" inputmode="numeric" pattern="[0-9]*">
       </div>
       <div class="form-group">
-        <label for="fechaPosterior">Fecha de Consulta (Estimación 6 meses):</label>
+        <label for="fechaPosterior">Selecciona fecha de Consulta (estimación 6 meses)</label>
         <input type="date" id="fechaPosterior">
       </div>
       <button class="btn" onclick="calcularPosterior()">Simular Saldo</button>
